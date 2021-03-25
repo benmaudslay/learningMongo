@@ -1,11 +1,9 @@
 const mongoose = require("mongoose");
-
-const URI =
-  "mongodb+srv://Ben:flapjacks2@gql-ninja-demo.dblxo.mongodb.net/cactusdb?retryWrites=true&w=majority";
+require("dotenv").config();
 
 const connection = async () => {
   try {
-    await mongoose.connect(URI, {
+    await mongoose.connect(process.env.MONGO_URI, {
       useUnifiedTopology: true,
       useNewUrlParser: true,
     });
